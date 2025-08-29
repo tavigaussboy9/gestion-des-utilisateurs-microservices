@@ -29,4 +29,8 @@ services:
     image: mongo
     ports:
       - '27017:27017'  # MongoDB service port
-    # Ensure persistent data storage, consider adding volume mapping
+    volumes:
+      - mongo_data:/data/db  # Ensure persistent data storage
+
+volumes:
+  mongo_data: {}
