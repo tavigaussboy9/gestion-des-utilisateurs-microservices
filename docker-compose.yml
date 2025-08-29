@@ -7,7 +7,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - MONGO_URI=mongodb://db:27017/auth
+      - MONGO_URI=mongodb://db:27017/auth  # URI for Authentication service
 
   user_profiles:
     build:
@@ -15,7 +15,7 @@ services:
     ports:
       - '3001:3001'
     environment:
-      - MONGO_URI=mongodb://db:27017/profiles
+      - MONGO_URI=mongodb://db:27017/profiles  # URI for User Profiles service
 
   activity_history:
     build:
@@ -23,9 +23,9 @@ services:
     ports:
       - '3002:3002'
     environment:
-      - MONGO_URI=mongodb://db:27017/history
+      - MONGO_URI=mongodb://db:27017/history  # URI for Activity History service
 
   db:
     image: mongo
     ports:
-      - '27017:27017'
+      - '27017:27017'  # MongoDB service port
