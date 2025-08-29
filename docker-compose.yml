@@ -5,32 +5,32 @@ services:
     build:
       context: ./auth
     ports:
-      - '3000:3000'  # Port for authentication service
+      - '3000:3000'  # Port for the authentication service to listen on
     environment:
-      - MONGO_URI=mongodb://db:27017/auth  # URI for Authentication service
+      - MONGO_URI=mongodb://db:27017/auth  # URI for the MongoDB used by the authentication service
 
   user_profiles:
     build:
       context: ./user_profiles
     ports:
-      - '3001:3001'  # Port for user profiles service
+      - '3001:3001'  # Port for the user profiles service to listen on
     environment:
-      - MONGO_URI=mongodb://db:27017/profiles  # URI for User Profiles service
+      - MONGO_URI=mongodb://db:27017/profiles  # URI for the MongoDB used by the user profiles service
 
   activity_history:
     build:
       context: ./activity_history
     ports:
-      - '3002:3002'  # Port for activity history service
+      - '3002:3002'  # Port for the activity history service to listen on
     environment:
-      - MONGO_URI=mongodb://db:27017/history  # URI for Activity History service
+      - MONGO_URI=mongodb://db:27017/history  # URI for the MongoDB used by the activity history service
 
   db:
     image: mongo
     ports:
-      - '27017:27017'  # MongoDB service port
+      - '27017:27017'  # Port for the MongoDB service
     volumes:
-      - mongo_data:/data/db  # Ensure persistent data storage
+      - mongo_data:/data/db  # Volume for ensuring persistent data storage
 
 volumes:
   mongo_data: {}
