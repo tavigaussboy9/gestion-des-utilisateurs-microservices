@@ -26,7 +26,7 @@ services:
       - MONGO_URI=mongodb://db:27017/history  # URI for the MongoDB used by the activity history service
 
   db:
-    image: mongo
+    image: mongo  # MongoDB image for database service
     ports:
       - '27017:27017'  # Port for the MongoDB service
     volumes:
