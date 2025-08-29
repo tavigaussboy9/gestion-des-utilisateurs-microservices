@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  auth:
+    build:
+      context: ./auth
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URI=mongodb://db:27017/auth
+
+  user_profiles:
+    build:
+      context: ./user_profiles
+    ports:
+      - '3001:3001'
+    environment:
+      - MONGO_URI=mongodb://db:27017/profiles
+
+  activity_history:
+    build:
+      context: ./activity_history
+    ports:
+      - '3002:3002'
+    environment:
+      - MONGO_URI=mongodb://db:27017/history
+
+  db:
+    image: mongo
+    ports:
+      - '27017:27017'
